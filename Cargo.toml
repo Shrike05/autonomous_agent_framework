@@ -1,0 +1,8 @@
+[package]
+name = "autonomous_agent_framework"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = "0.17.2"
+derive-new = "0.7.0"
