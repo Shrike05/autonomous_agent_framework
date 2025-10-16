@@ -1,11 +1,16 @@
 mod agent;
 
 use crate::agent::agent::*;
+use crate::agent::hit::*;
+use crate::agent::hp::*;
 use bevy::prelude::*;
 
 fn main() {
     App::new()
-        .add_plugins((DefaultPlugins, AgentPlugin))
+        .add_plugins((
+            DefaultPlugins,
+            AgentPlugin,
+        ))
         .add_systems(Startup, init_test)
         .add_systems(Update, (log_hits, interact_enemy))
         .run();
@@ -33,7 +38,6 @@ fn interact_enemy(
             commands.trigger(HealHit::new(body, 1));
         }
     }
-
 }
 
 fn log_hits(changed_query: Query<&HP, Changed<HP>>) {
